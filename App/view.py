@@ -80,14 +80,15 @@ def printBestBooks(books):
     else:
         print('No se encontraron libros')
 
-def printResults(ord_books, sample=10): 
-    size = lt.size(ord_books) 
-    if size > sample: 
-        print("Los primeros ", sample, " libros ordenados son:") 
-        i=0 
-        while i <= sample: 
-            book = lt.getElement(ord_books,i) 
-            print('Titulo: ' + book['title'] + ' ISBN: ' + book['isbn'] + ' Rating: ' + book['average_rating']) 
+def printResults(ord_books, sample=10):
+    size = lt.size(ord_books)
+    if(size > sample):
+        print("Los primeros ", sample, "libros ordenandos son:")
+        i = 0
+        while i <= sample:
+            book = lt.getElement(ord_books, i)
+            print('Titulo: ' + book['title'] + ' ISBN: ' + 
+                book['isbn'] + ' Rating: ' + book['average_rating'])
             i+=1
 
 catalog = None
@@ -123,10 +124,11 @@ while True:
         book_count = controller.countBooksByTag(catalog, label)
         print('Se encontraron: ', book_count, ' Libros')
 
-    elif int(inputs[0]) == 5: 
-        size = input("Indique tamaño de la muestra: ") 
-        result = controller.sortBooks(catalog, int(size)) 
-        print("Para la muestra de", size, " elementos, el tiempo (mseg) es: ", str(result[0])) 
+    elif int(inputs[0]) == 5:
+        size = input("Indique tamaño de la muestra: ")
+        result = controller.sortBooks(catalog, int(size))
+        print("Para la muestra de", size, " elementos, el tiempo (mseg) es: ",
+                                          str(result[0]))
         printResults(result[1])
 
     else:
